@@ -25,4 +25,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-maven-
     - name: Ejecutar Tests Específicos
+      run: cd Practica3 && mvn test -Dtest=RunCucumberTest,RunCucumberTestTDD,PrestamoMockitoTest,PrestamoTest
+          ${{ runner.os }}-maven-
+    - name: Ejecutar Tests Específicos
       run: mvn test -Dtest=RunCucumberTest,RunCucumberTestTDD,PrestamoMockitoTest,PrestamoTest
