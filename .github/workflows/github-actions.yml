@@ -2,14 +2,13 @@ name: Ejecutar Tests
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
       with:
@@ -27,4 +26,4 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-maven-
     - name: Ejecutar Tests Específicos
-      run: mvn test -Dtest=Cucumber.RunCucumberTest,Cucumber.RunCucumberTestTDD,Prestamo.Cucumber.PrestamoMockitoTest,Prestamo.Cucumber.PrestamoTest
+      run: cd Practica3 && mvn test -Dtest=RunCucumberTest,RunCucumberTestTDD,PrestamoMockitoTest,PrestamoTest
